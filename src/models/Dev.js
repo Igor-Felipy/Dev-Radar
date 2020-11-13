@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');4
+const mongoose = require('mongoose');
 const PointSchema = require('./utils/PointSchema');
 
 

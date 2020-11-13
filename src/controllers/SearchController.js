@@ -1,10 +1,9 @@
-const { response } = require("express");
 const Dev = require("../models/Dev");
 const parseStringAsArray = require('../utils/parseStringAsArray')
 
 
 module.exports = {
-    async index(request, reponse) {
+    async index(request, response) {
         console.log(request.query);
         const { latitude, longitude, techs } = request.query;
 
@@ -17,14 +16,14 @@ module.exports = {
             location: {
                 $near: {
                   $geometry: {
-                      type: 'point',
-                      coordinates: [longitude, latitude],
+                      type: 'Point',
+                      coordinates: [longitude,latitude]
                   },
                   $maxDistance: 10000,
                 },
             },
-        })
+        });
 
-        return response.json({ devs });
-    }
-}
+        return response.json(devs);
+    },
+};
