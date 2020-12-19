@@ -37,13 +37,15 @@ function Main({ navigation }) {
     async function loadDevs() {
         const { latitude, longitude} = currentRegion;
 
-        const response = await api.get('/search', {
-            params: {
-                latitude,
-                longitude,
-                techs:"React.JS"
-            }
-        });
+        const response = await api.get('/devs', 
+        // {
+        //     params: {
+        //         latitude,
+        //         longitude,
+        //         techs:"HTML",
+        //     }
+        // }
+        );
 
         setDevs(response.data.devs);
         console.log(devs);
@@ -57,6 +59,14 @@ function Main({ navigation }) {
         return null;
     }
 
+
+    function test(){
+        useEffect(() => {
+            axios.get('http://192.168.0.107:3333/devs').then(response => {
+                console.log(response.data);
+            })
+        }, []);
+    };
     return(
         <>
             <MapView
@@ -98,7 +108,7 @@ function Main({ navigation }) {
             </View>
         </>
         );
-}
+};
 
 const styles = StyleSheet.create({
     map: {
