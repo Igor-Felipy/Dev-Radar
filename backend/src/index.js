@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes')
+const config = require('../config')
 
 const app = express();
 
-mongoose.connect('mongodb+srv://igor:omnistack@cluster0.jdbhx.mongodb.net/week10?retryWrites=true&w=majority', {
+mongoose.connect(config.mongo_uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
