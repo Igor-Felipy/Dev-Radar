@@ -28,9 +28,10 @@ export default function Main({ navigation }) {
 
       if (granted) {
         const { coords } = await getCurrentPositionAsync({
-          enableHighAccuracy: true,
+          enableHighAccuracy: false,
         });
-        const { latitude, longitude } = coords;
+        const latitude = coords.latitude;
+        const longitude = coords.longitude;
 
         setCurrentRegion({
           latitude,
@@ -68,6 +69,7 @@ export default function Main({ navigation }) {
 
   return (
     <>
+    console.log(devs);
       <MapView
         loadingEnabled
         style={styles.map}

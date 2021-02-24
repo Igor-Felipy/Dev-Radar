@@ -18,7 +18,9 @@
 
 ## Mobile Version
 
+- The mobile version is a map where you can find anothers devs to interact.
 
+![Mobile Web](/img/mobile_version.png)
 
 ### How to install
 
